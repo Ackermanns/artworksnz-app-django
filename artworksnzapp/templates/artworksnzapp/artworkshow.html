@@ -1,0 +1,75 @@
+{% extends 'artworksnzapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<main>
+	<div class="PageContent">
+		<div class="ShowTextContent">
+			<div class="ArtistDisplayContent">
+				<h1>Artist details</h1>
+				<div class="ArtistDisplayWrapper">
+					<div class="ArtistDisplay">
+						First name:<br />
+					</div>
+					{{artist_data.first_name}}<br />
+				</div>
+				<div class="ArtistDisplayWrapper">
+					<div class="ArtistDisplay">
+						Last name:<br />
+					</div>
+					{{artist_data.last_name}}<br />
+				</div>
+				<div class="ArtistDisplayWrapper">
+					<div class="ArtistDisplay">
+						Location:<br />
+					</div>
+					{{artist_data.location}}<br />
+				</div>
+				<div class="ArtistDisplayWrapper">
+					<div class="ArtistDisplay">
+						Primary media:<br />
+					</div>
+					{{artist_data.primary_media}}<br />
+				</div>
+			</div>
+			<br />
+			<h1>Artwork details</h1>
+			<div class="ArtworkDisplayContent">
+				<div class="ArtworkDisplayWrapper">
+					<div class="ArtworkDisplay">
+						Artwork Name:<br />
+					</div>
+					{{artwork_data.artwork}}<br />
+				</div>
+				<div class="ArtworkDisplayWrapper">
+					<div class="ArtworkDisplay">
+						Media Type:<br />
+					</div>
+					{{artwork_data.media_type}}<br />
+				</div>
+				<div class="ArtworkDisplayWrapper">
+					<div class="ArtworkDisplay">
+						Completion Date:<br />
+					</div>
+					{{artwork_data.completion_date}}<br />
+				</div>
+				<div class="ArtworkDisplayWrapper">
+					<div class="ArtworkDisplay">
+						Price: (NZD)<br />
+					</div>
+					{{artwork_data.price}}<br />
+				</div>
+				<div class="ArtworkDisplayWrapper">
+					<div class="ArtworkDisplay">
+						Notes:<br />
+					</div>
+					{{artwork_data.note}}<br />
+				</div>
+			</div>
+		</div>
+		<img src="{{artwork_data.artwork_img.url}}" alt="Artwork image"/>
+	</div>
+	<br/>
+</main>
+
+{% endblock content %}

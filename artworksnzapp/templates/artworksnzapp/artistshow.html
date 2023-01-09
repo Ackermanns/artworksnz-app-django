@@ -1,0 +1,60 @@
+{% extends 'artworksnzapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+	<h1>Artist Data</h1>
+	<div class="ArtistDisplayContent">
+		<div class="ArtistDisplayWrapper">
+			<div class="ArtistDisplay">
+				First name:<br />
+			</div>
+			{{artist_data.first_name}}<br />
+		</div>
+		<div class="ArtistDisplayWrapper">
+			<div class="ArtistDisplay">
+				Last name:<br />
+			</div>
+			{{artist_data.last_name}}<br />
+		</div>
+		<div class="ArtistDisplayWrapper">
+			<div class="ArtistDisplay">
+				Location:<br />
+			</div>
+			{{artist_data.location}}<br />
+		</div>
+		<div class="ArtistDisplayWrapper">
+			<div class="ArtistDisplay">
+				Primary media:<br />
+			</div>
+			{{artist_data.primary_media}}<br />
+		</div>
+	</div>
+	<h1>List of current artworks</h1>
+	<table>
+		<tr>
+			<th>Artwork Image</th>
+			<th>Artwork Name</th>
+			<th>Media Type</th>
+			<th>Completion Date</th>
+			<th>Price (NZD)</th>
+		</tr>
+		{% for a in artwork_data %}
+			{% if a.artist_id.id == artistkey %}
+			<tr onclick="window.location='/artworks/{{a.id}}';">
+				<td><img src="{{a.artwork_img.url}}" alt="Artwork image"/></td>
+				<td>{{a.artwork}}</td>
+				<td>{{a.media_type}}</td>
+				<td>{{a.completion_date}}</td>
+				<td>{{a.price}}</td>
+			</tr>
+			{% endif %}
+		{% endfor %}
+	</table>
+	<h1>Add new Artwork entry</h1>
+	<p>Add new entry <a href="/addartwork/{{artistkey}}">here</a></p><br/>
+	<br/>
+</main>
+
+{% endblock content %}

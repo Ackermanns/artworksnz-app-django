@@ -1,0 +1,39 @@
+{% extends 'artworksnzapp/base.html' %}
+{% load static %}
+{% block content %}
+<main>
+	<div class="form-page">
+		<div class="form-header">
+			<h1>Edit Artwork</h1>
+		</div>
+		<br>
+		<div class="form-content">
+			<form method='POST' method="multipart/form-data">
+				{% csrf_token %}
+				{{artworkform.artwork.label}}:<br/>
+				{{artworkform.artwork.as_widget}}<br/>
+				{{artworkform.media_type.label}}:<br/>
+				{{artworkform.media_type.as_widget}}<br/>
+				
+				{{artworkform.completion_date.label}}:<br/>
+				{{artworkform.completion_date.as_widget}}<br/>
+				{{artworkform.price.label}}:<br/>
+				{{artworkform.price.as_widget}}<br/>
+				{{artworkform.note.label}}:<br/>
+				{{artworkform.note.as_widget}}<br/>
+				{{artworkform.artwork_img.label}}:<br/>
+				{{artworkform.artwork_img.as_widget}}<br/>
+				
+				{{artworkform.artist_id.label}}:<br/>
+				{{artworkform.artist_id.as_widget}}<br/>
+				
+
+
+				<br/>
+				<input type='submit' value="Update"/><br/>
+			</form>
+		</div>
+		</br>
+	</div>
+</main>
+{% endblock content %}

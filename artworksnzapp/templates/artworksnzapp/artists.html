@@ -1,0 +1,31 @@
+{% extends 'artworksnzapp/base.html' %}
+
+{% block content %}
+<main>
+	<h1>Artist Entries</h1>
+	<table>
+		<tbody>
+			<tr>
+				<th>ID</th>
+				<th>Full Name</th>
+				<th>Primary Media</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+			{% for a in artist_data %}
+				<tr onclick="window.location='/artists/{{a.id}}';">
+					<td>{{a.id}}</td>
+					<td>{{a.last_name}}, {{a.first_name}}</td>
+					<td>{{a.primary_media}}</td>
+					<td><a href="/edit_artist/{{a.id}}/"><button>Edit</button></a></td>
+					<td><a href="/delete_artist/{{a.id}}/"><button>Delete</button></a></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<br/>
+	<h1>Add new Artist entry</h1>
+	<p>Add new entry <a href="/addartist/">here</a></p><br/>
+	<br/>
+</main>
+{% endblock content %}

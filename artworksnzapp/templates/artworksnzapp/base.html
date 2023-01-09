@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+		<title>ArtworksNZ</title>
+	</head>
+	<body>
+		<header>
+			<img src="{% static 'images/artworksnzlogo.PNG' %}" alt="artworksnzlogo">
+			<h2>The Artwork Marketplace of Aotearoa</h2>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/artists">Artists</a></li>
+				<li><a href="/artworks">Artworks</a></li>
+				<li><a href="/admin">Admin Login</a></li>
+				{% if user.is_authenticated %}
+					<li><a href="{% url 'logout' %}">Log Out</a></li>
+				{% else %}
+					<li><a href="{% url 'login' %}">Log In</a></li>
+				{% endif %}
+			</ul>
+		</nav>
+		
+		{% block content %}
+		
+		{% endblock content %}
+		<footer>
+			<p>© Artworks NZ, 2022</p>
+		</footer>
+	</body>
+</html>
+
